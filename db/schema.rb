@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_222845) do
+ActiveRecord::Schema.define(version: 2021_02_22_224831) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -23,4 +23,21 @@ ActiveRecord::Schema.define(version: 2021_02_22_222845) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.string "classification"
+    t.string "average_height"
+    t.string "average_lifespan"
+    t.string "skin_colours"
+    t.string "language"
+    t.integer "characters_id", null: false
+    t.integer "films_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["characters_id"], name: "index_species_on_characters_id"
+    t.index ["films_id"], name: "index_species_on_films_id"
+  end
+
+  add_foreign_key "species", "characters", column: "characters_id"
+  add_foreign_key "species", "films", column: "films_id"
 end
