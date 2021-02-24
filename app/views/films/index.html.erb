@@ -1,7 +1,7 @@
-<h1>Star Wars Films</h1>
+<h2 class="title is-2">Star Wars Films</h2>
 
 <ol>
   <% @films.each do | film | %>
-    <li><%= link_to film.title, film %></li>
+    <li><%= link_to film.title, film %> (<%= film.release_date %>)</li>
   <% end %>
 </ol>

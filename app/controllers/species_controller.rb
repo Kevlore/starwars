@@ -1,6 +1,6 @@
 class SpeciesController < ApplicationController
   def index
-    @species = Species.all
+    @species = Species.all.order("name")
   end
 
   def show
