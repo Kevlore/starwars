@@ -87,7 +87,7 @@ film_ids.each do |film_id|
   characters = film['characters'].map { |character_url| swapi_fetch(character_url)}
   species = film['species'].map { |species_url| swapi_fetch(species_url)}
 
-
+  # generated_film = Film.create(title: film['title'])
   puts "Title: #{film['title']}"
   puts "Director: #{film['birth_year']}"
   puts "Release Date: #{film['release_date']}"
