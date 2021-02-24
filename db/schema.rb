@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_002809) do
+ActiveRecord::Schema.define(version: 2021_02_24_003821) do
 
   create_table "character_species", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2021_02_24_002809) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_film_characters_on_character_id"
     t.index ["film_id"], name: "index_film_characters_on_film_id"
+  end
+
+  create_table "film_species", force: :cascade do |t|
+    t.integer "film_id", null: false
+    t.integer "species_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["film_id"], name: "index_film_species_on_film_id"
+    t.index ["species_id"], name: "index_film_species_on_species_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -73,6 +82,8 @@ ActiveRecord::Schema.define(version: 2021_02_24_002809) do
   add_foreign_key "character_species", "species"
   add_foreign_key "film_characters", "characters"
   add_foreign_key "film_characters", "films"
+  add_foreign_key "film_species", "films"
+  add_foreign_key "film_species", "species"
   add_foreign_key "films", "characters", column: "characters_id"
   add_foreign_key "films", "species"
   add_foreign_key "species", "characters", column: "characters_id"
