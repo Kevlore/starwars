@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# CharacterSpecy.delete_all
-# FilmCharacter.delete_all
-# Species.delete_all
-# Film.delete_all
-# Character.delete_all
+CharacterSpecy.delete_all
+FilmCharacter.delete_all
+Species.delete_all
+Film.delete_all
+Character.delete_all
 
 require 'open-uri'
 require 'json'
@@ -58,7 +58,10 @@ end
 # PERSON MODEL
 
 # 83 Total Characters in API
-character_ids = 1..3
+character_ids =*(1..83)
+character_ids -= [17]
+# unformatted_array=*(1..83)
+# character_ids = unformatted_array.delete(17)
 
 character_ids.each do |character_id|
   person = swapi_fetch(person_url(character_id))
@@ -71,7 +74,7 @@ character_ids.each do |character_id|
     quote = Faker::Movies::StarWars.quote
   end
 
-  character = Character.create(
+  character = Character.find_or_create_by(
     name: person['name'],
     birth_year: person['birth_year'],
     gender: person['gender'],
@@ -86,8 +89,8 @@ character_ids.each do |character_id|
   # end
 
   # Splits on the comma
-  character_films = film_title_list(films).split(",").map(&:strip)
-  character_films.each do |character_film|
+  # character_films = film_title_list(films).split(",").map(&:strip)
+  films.each do |character_film|
     film = Film.find_or_create_by(title: character_film['title'],
                                   director: character_film['director'],
                                   release_date: character_film['release_date'])
@@ -95,8 +98,8 @@ character_ids.each do |character_id|
     FilmCharacter.create(film: film, character: character)
   end
 
-  character_species = species_name_list(species).split(",").map(&:strip)
-  character_species.each do |character_specy|
+  # character_species = species_name_list(species).split(",").map(&:strip)
+  species.each do |character_specy|
     specy = Species.find_or_create_by(
       name: character_specy['name'],
       classification: character_specy['classification'],
@@ -105,7 +108,7 @@ character_ids.each do |character_id|
       skin_colors: character_specy['skin_colors'],
       language: character_specy['language'])
 
-    CharacterSpecies.create(species: specy, character: character)
+    CharacterSpecy.create(species: specy, character: character)
   end
 
   # puts "Name: #{one_species['name']}"
