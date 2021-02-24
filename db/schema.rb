@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_032137) do
+ActiveRecord::Schema.define(version: 2021_02_24_032439) do
 
   create_table "character_species", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_032137) do
     t.string "classification"
     t.string "average_height"
     t.string "average_lifespan"
-    t.string "skin_colours"
+    t.string "skin_colors"
     t.string "language"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
