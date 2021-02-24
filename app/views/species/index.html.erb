@@ -1,2 +1,7 @@
-<h1>Species#index</h1>
-<p>Find me in app/views/species/index.html.erb</p>
+<h1>Star Wars Species</h1>
+
+<ol>
+  <% @species.each do | specy | %>
+    <li><%= link_to specy.name, specy %></li>
+  <% end %>
+</ol>
