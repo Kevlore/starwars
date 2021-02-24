@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-CharacterSpecy.delete_all
-FilmCharacter.delete_all
-Species.delete_all
-Film.delete_all
-Character.delete_all
+# CharacterSpecy.delete_all
+# FilmCharacter.delete_all
+# Species.delete_all
+# Film.delete_all
+# Character.delete_all
 
 require 'open-uri'
 require 'json'
@@ -65,17 +65,19 @@ character_ids.each do |character_id|
   films = person['films'].map { |film_url| swapi_fetch(film_url)}
   species = person['species'].map { |species_url| swapi_fetch(species_url)}
 
+  begin
+    quote = Faker::Movies::StarWars.quote(character: "#{person['name']}")
+  rescue ArgumentError
+    quote = Faker::Movies::StarWars.quote
+  end
+
   character = Character.create(
     name: person['name'],
     birth_year: person['birth_year'],
     gender: person['gender'],
     hair_color: person['hair_color'],
     height: person['height'],
-    begin
-      quote: Faker::Movies::StarWars.quote(character: "#{person['name']}")
-    rescue ArgumentError
-      quote: Faker::Movies::StarWars.quote
-    end
+    quote: quote
   )
 
   # if generated_film && generated_film.valid?
