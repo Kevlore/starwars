@@ -7,6 +7,6 @@ class Character < ApplicationRecord
   has_many :character_species
   has_many :species, through: :character_species
 
-  # validates :name, uniqueness: true
-  # validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :name, presence: true
 end

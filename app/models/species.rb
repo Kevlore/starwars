@@ -4,6 +4,6 @@ class Species < ApplicationRecord
   has_many :character_species
   has_many :characters, through: :character_species
 
-  # validates :name, presence: true
-  # validates :name, uniqueness: true
+  validates :name, presence: true
+  validates :name, uniqueness: true
 end
