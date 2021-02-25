@@ -15,7 +15,10 @@
   <body>
     <section class="section">
       <div class="container">
-        <h1 class="title is-1"><%= link_to "Star Wars Wiki", root_path %></h1>
+        <div class="mb-5">
+          <%= link_to image_tag("logos/DeathstarLogo.jpeg", width: '100', alt: "Deathstar Logo", class: "is-inline"), root_path %>
+          <h1 class="title is-1 is-inline"><%= link_to "Star Wars Wiki", root_path %></h1>
+        </div>
         <%= yield %>
         <%= render partial: 'common/footer' %>
       </div>
