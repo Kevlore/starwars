@@ -1,11 +1,19 @@
 <h2 class="title is-2"><%= @film.title %></h2>
 
+<p>
+  <strong>Director: </strong>
+  <%= @film.director %>
+</p>
+<p>
+  <strong>Release Date: </strong>
+  <%= @film.release_date %>
+</p>
+
 <p class="mb-5">There are <%= @film.characters.count%> characters in this film.<p>
 
-<%# TODO: Order the characters%>
 <h3 class="title is-3">Characters in <%= @film.title %>: </h3>
 <ul>
-  <% @film.characters.each do | character | %>
+  <% @film.characters.order("name").each do | character | %>
     <li><%= link_to character.name, character %></li>
   <% end %>
 </ul>

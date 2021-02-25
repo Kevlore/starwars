@@ -1,2 +1,31 @@
 <h2 class="title is-2"><%= @specy.name %></h2>
 
+<p>
+  <strong>Classification: </strong>
+  <%= @specy.classification %>
+</p>
+<p>
+  <strong>Average Height: </strong>
+  <%= @specy.average_height %> cm
+</p>
+<p>
+  <strong>Average Lifespan: </strong>
+  <%= @specy.average_lifespan %>
+</p>
+<p>
+  <strong>Skin Colors: </strong>
+  <%= @specy.skin_colors %>
+</p>
+<p>
+  <strong>Language: </strong>
+  <%= @specy.language %>
+</p>
+
+<p class="mb-5">There <%= @specy.characters.count == 1 ? 'is' : 'are' %> <%= @specy.characters.count %> <%= "character".pluralize(@specy.characters.count) %> of this species.<p>
+
+<h3 class="title is-3">Characters of the <%= @specy.name %> species: </h3>
+<ul>
+  <% @specy.characters.order("name").each do | character | %>
+    <li><%= link_to character.name, character %></li>
+  <% end %>
+</ul>

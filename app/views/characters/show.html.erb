@@ -1,2 +1,36 @@
 <h2 class="title is-2"><%= @character.name %></h2>
 
+<p>
+  <strong>Birth Year: </strong>
+  <%= @character.birth_year %>
+</p>
+<p>
+  <strong>Gender: </strong>
+  <%= @character.gender %>
+</p>
+<p>
+  <strong>Hair Color: </strong>
+  <%= @character.hair_color %>
+</p>
+<p>
+  <strong>Height: </strong>
+  <%= @character.height %> cm
+</p>
+<p>
+  <strong>Quote: </strong>
+  "<%= @character.quote %>"
+</p>
+<p>
+  <strong>Species: </strong>
+  <% @character.species.each do |specy|%>
+    <%= link_to specy.name, specy %>
+  <% end %>
+</p>
+<ol>
+  <strong>Films: </strong>
+  <% @character.films.each do |film|%>
+    <li>
+      <%= link_to film.title, film %>
+    </li>
+  <% end %>
+</ol>
