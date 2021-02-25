@@ -2,6 +2,12 @@
 
 <h2 class="title is-2">Star Wars Species</h2>
 
+<h4>Search by Species:</h4>
+  <%= form_tag(species_index_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
 <ol class="ml-5">
   <% @species.each do | specy | %>
     <li><%= link_to specy.name, specy %></li>

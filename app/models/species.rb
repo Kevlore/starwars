@@ -6,4 +6,17 @@ class Species < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def self.search(search)
+    if search
+      specy = Species.find_by(name: search)
+      if specy
+        self.where(id: specy)
+      else
+        Species.all.order("name")
+      end
+    else
+      Species.all
+    end
+  end
 end
