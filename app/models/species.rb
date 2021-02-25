@@ -16,7 +16,7 @@ class Species < ApplicationRecord
         Species.all.order("name")
       end
     else
-      Species.all
+      Species.all.order("name")
     end
   end
 end

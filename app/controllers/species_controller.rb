@@ -1,6 +1,5 @@
 class SpeciesController < ApplicationController
   def index
-    # @species = Species.all.order("name")
       @species = Species.search(params[:search])
   end
 
