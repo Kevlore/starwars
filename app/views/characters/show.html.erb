@@ -22,17 +22,22 @@
   <strong>Quote: </strong>
   "<%= @character.quote %>"
 </p>
-<p>
-  <strong>Species: </strong>
+
+<h3 class="title is-3 mb-2 mt-5">Species: <h3>
+<ul>
+  <%# <strong>Species: </strong> %>
   <% @character.species.each do |specy|%>
-    <%= link_to specy.name, specy %>
+    <li class="ml-5">
+      <%= link_to specy.name, specy %>
+    </li>
   <% end %>
-</p>
-<ol>
-  <strong>Films: </strong>
+</ul>
+
+<h3 class="title is-3 mb-2 mt-5">Films: </h3>
+<ul>
   <% @character.films.each do |film|%>
-    <li>
+    <li class="ml-5">
       <%= link_to film.title, film %>
     </li>
   <% end %>
-</ol>
+</ul>

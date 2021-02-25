@@ -25,7 +25,7 @@
 
 <p class="mb-5">There <%= @specy.characters.count == 1 ? 'is' : 'are' %> <%= @specy.characters.count %> <%= "character".pluralize(@specy.characters.count) %> of this species.<p>
 
-<h3 class="title is-3">Characters of the <%= @specy.name %> species: </h3>
+<h3 class="title is-3 mb-2">Characters of the <%= @specy.name %> species: </h3>
 <ul>
   <% @specy.characters.order("name").each do | character | %>
     <li><%= link_to character.name, character %></li>

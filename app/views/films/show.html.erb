@@ -13,7 +13,7 @@
 
 <p class="mb-5">There are <%= @film.characters.count%> characters in this film.<p>
 
-<h3 class="title is-3">Characters in <%= @film.title %>: </h3>
+<h3 class="title is-3 mb-2">Characters in <%= @film.title %>: </h3>
 <ul>
   <% @film.characters.order("name").each do | character | %>
     <li><%= link_to character.name, character %></li>
