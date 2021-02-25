@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column">
-    <h2 class="title is-2">Films</h2>
+    <h2 class="title is-2"><%= link_to "Films", films_path %></h2>
     <ul class="ml-5">
       <% @films.each do |film| %>
         <li><%= link_to film.title, film %></li>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="column">
-    <h2 class="title is-2">Characters</h2>
+    <h2 class="title is-2"><%= link_to "Characters", characters_path %></h2>
     <ul class="ml-5">
       <% @characters.each do |character| %>
         <li><%= link_to character.name, character %></li>
@@ -18,7 +18,7 @@
   </div>
 
   <div class="column">
-    <h2 class="title is-2">Species</h2>
+    <h2 class="title is-2"><%= link_to "Species", species_index_path %></h2>
     <ul class="ml-5">
       <% @species.each do |specy| %>
         <li><%= link_to specy.name, specy %></li>
