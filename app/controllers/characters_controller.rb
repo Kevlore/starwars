@@ -8,7 +8,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
-  def species_params
+  def characters_params
     params.require(:character).permit(:name, :birth_year, :gender, :hair_color, :height, :quote, :search)
   end
 end
