@@ -3,10 +3,14 @@
 <h2 class="title is-2">Star Wars Species</h2>
 
 <h4>Search by Species:</h4>
-  <%= form_tag(species_index_path, method: :get) do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag("Search") %>
-  <% end %>
+<div class="field has-addons">
+  <div class="control">
+    <%= form_tag(species_index_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search], class: "input is-link is-inline") %>
+      <%= submit_tag("Search", class: "button is-link") %>
+    <% end %>
+  </div>
+</div>
 
 <ol class="ml-5">
   <% @species.each do | specy | %>
