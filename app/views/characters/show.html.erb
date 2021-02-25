@@ -23,9 +23,8 @@
   "<%= @character.quote %>"
 </p>
 
-<h3 class="title is-3 mb-2 mt-5">Species: <h3>
+<h3 class="title is-3 mb-2 mt-5">Species: </h3>
 <ul>
-  <%# <strong>Species: </strong> %>
   <% @character.species.each do |specy|%>
     <li class="ml-5">
       <%= link_to specy.name, specy %>
